@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Mines Casino - Jogue e Ganhe{% endblock %}
+
+{% block content %}
+<div class="row align-items-center hero-section">
+    <div class="col-md-6">
+        <h1 class="display-4 mb-4">Bem-vindo ao Mines Casino</h1>
+        <p class="lead mb-4">Explore o emocionante jogo Mines e teste sua sorte. Todos os usuários começam com R$1000 grátis para jogar!</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('mines_game') }}" class="btn btn-primary btn-lg px-4 me-md-2">Jogar Agora</a>
+            {% else %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg px-4 me-md-2">Registrar</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-lg px-4">Entrar</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-6 text-center">
+        <div class="mines-preview">
+            <div class="mines-grid-preview">
+                <div class="mines-tile gem"></div>
+                <div class="mines-tile bomb"></div>
+                <div class="mines-tile gem"></div>
+                <div class="mines-tile gem"></div>
+                <div class="mines-tile bomb"></div>
+                <div class="mines-tile gem"></div>
+                <div class="mines-tile bomb"></div>
+                <div class="mines-tile gem"></div>
+                <div class="mines-tile gem"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card feature-card">
+            <div class="card-body text-center">
+                <i class="fas fa-gem feature-icon"></i>
+                <h3 class="mt-3">Mines Game</h3>
+                <p>Revele gemas e evite as bombas para multiplicar seus ganhos neste jogo emocionante.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card feature-card">
+            <div class="card-body text-center">
+                <i class="fas fa-wallet feature-icon"></i>
+                <h3 class="mt-3">R$1000 Grátis</h3>
+                <p>Comece a jogar imediatamente com R$1000 de saldo inicial após o registro.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card feature-card">
+            <div class="card-body text-center">
+                <i class="fas fa-moon feature-icon"></i>
+                <h3 class="mt-3">Modo Escuro</h3>
+                <p>Interface moderna com modo escuro para uma experiência visual confortável.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
